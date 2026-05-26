@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Play, Pause, Music2, Zap, ChevronDown } from 'lucide-react';
 
@@ -356,23 +356,23 @@ function WaveformBar({ color, isPlaying }: { color: string; isPlaying: boolean }
           animate={
             isPlaying
               ? {
-                  height: [
-                    `${20 + Math.random() * 60}%`,
-                    `${20 + Math.random() * 60}%`,
-                    `${20 + Math.random() * 60}%`,
-                  ],
-                }
+                height: [
+                  `${20 + Math.random() * 60}%`,
+                  `${20 + Math.random() * 60}%`,
+                  `${20 + Math.random() * 60}%`,
+                ],
+              }
               : { height: '20%' }
           }
           transition={
             isPlaying
               ? {
-                  duration: 0.4 + (i % 5) * 0.08,
-                  repeat: Infinity,
-                  repeatType: 'mirror',
-                  ease: 'easeInOut',
-                  delay: (i / bars) * 0.2,
-                }
+                duration: 0.4 + (i % 5) * 0.08,
+                repeat: Infinity,
+                repeatType: 'mirror',
+                ease: 'easeInOut',
+                delay: (i / bars) * 0.2,
+              }
               : { duration: 0.3 }
           }
         />
@@ -619,8 +619,8 @@ export default function App() {
               {!selectedTrack1 && !selectedTrack2
                 ? '원을 드래그하거나 카드를 클릭하여 트랙을 선택하세요'
                 : !selectedTrack1
-                ? '트랙 A를 선택해주세요'
-                : '트랙 B를 선택해주세요'}
+                  ? '트랙 A를 선택해주세요'
+                  : '트랙 B를 선택해주세요'}
             </p>
           </motion.div>
         )}
